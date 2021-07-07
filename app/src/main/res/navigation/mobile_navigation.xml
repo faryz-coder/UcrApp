@@ -15,11 +15,20 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.deventhirran.carrental.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_createAds"
+            app:destination="@id/createAds" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.deventhirran.carrental.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/createAds"
+        android:name="com.deventhirran.carrental.CreateAds"
+        android:label="fragment_create_ads"
+        tools:layout="@layout/fragment_create_ads" />
 </navigation>
