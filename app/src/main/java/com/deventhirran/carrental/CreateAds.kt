@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isGone
 import com.deventhirran.carrental.databinding.FragmentCreateAdsBinding
@@ -21,7 +22,6 @@ class CreateAds : Fragment() {
 
     private val binding get() = _binding!!
     private var imageUri : Uri? = null
-    private var imageUploadURL : String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +39,8 @@ class CreateAds : Fragment() {
             // Check form
             if (valid()) {
                 d("bomoh", "form is valid")
+                // [UPLOAD] Data
+
             }
         }
 
@@ -50,8 +52,7 @@ class CreateAds : Fragment() {
 
         }
 
-
-        // UPLOAD IMAGE
+        // SELECT IMAGE
         binding.buttonAddImage.setOnClickListener {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             resultLauncher.launch(gallery)
@@ -79,6 +80,10 @@ class CreateAds : Fragment() {
             valid = false
         } else {
             hourlyRate.error = null
+        }
+
+        if (imageUri.toString().isNullOrEmpty()) {
+            Toast.makeText(context, "Please Select Image", Toast.LENGTH_SHORT).show()
         }
 
         return valid
