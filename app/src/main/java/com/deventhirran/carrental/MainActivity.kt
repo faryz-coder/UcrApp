@@ -2,13 +2,16 @@ package com.deventhirran.carrental
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.deventhirran.carrental.databinding.ActivityMainBinding
+import com.deventhirran.carrental.ui.user.viewmodel.LoginViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -16,6 +19,7 @@ import com.google.firebase.ktx.Firebase
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
+    var username: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +27,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
+        username = intent.getStringExtra("username").toString()
+        var viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel.id = username
+
+        Toast.makeText(applicationContext, "Welcome: ${viewModel.id}", Toast.LENGTH_SHORT).show()
 
         signInAnonymously()
         val navView: BottomNavigationView = binding.navView
