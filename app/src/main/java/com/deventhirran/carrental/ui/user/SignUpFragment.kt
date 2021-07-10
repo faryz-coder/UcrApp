@@ -43,7 +43,12 @@ class SignUpFragment : Fragment() {
                 // Create Account
                 val data = hashMapOf(
                     "username" to binding.signupInputUsername.text.toString(),
-                    "password" to binding.signupInputPassword.text.toString()
+                    "password" to binding.signupInputPassword.text.toString(),
+                    "type" to if (binding.radioButtonRental.isChecked) {
+                        "rental"
+                    } else {
+                        "owner"
+                    }
                 )
                 db.collection("user").document(binding.signupInputUsername.text.toString())
                     .set(data)
