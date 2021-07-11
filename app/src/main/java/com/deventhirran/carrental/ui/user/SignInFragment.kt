@@ -53,6 +53,7 @@ class SignInFragment : Fragment() {
                             // proceeed to login
                             val intent = Intent(requireContext(), MainActivity::class.java)
                             intent.putExtra("username", binding.signupInputUsername.text.toString())
+                            intent.putExtra("type", it.getField<String>("type").toString())
                             startActivity(intent)
                         } else {
                             Toast.makeText(context, "Wrong Password", Toast.LENGTH_SHORT).show()

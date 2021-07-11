@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.deventhirran.carrental.R
 
@@ -26,6 +28,13 @@ class AdsList(private val listAds: MutableList<ListAds>) : RecyclerView.Adapter<
         holder.title.text = loc.title
         holder.price.text = loc.price
         d("debugAdsList", "debugAdsListAdapter: ${loc.price}")
+        if (loc.type != "owner") {
+            holder.selection.setOnClickListener {
+                d("debugAdsList", "debugAdsList:Click:${loc.title}, ${loc.uid}")
+                val bundle = bundleOf("uid" to loc.uid)
+                holder.itemView.findNavController().navigate(R.id.action_navigation_home_to_detailsFragment, bundle)
+            }
+        }
     }
 
     override fun getItemCount(): Int {

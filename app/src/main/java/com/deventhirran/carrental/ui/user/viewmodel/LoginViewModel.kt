@@ -4,4 +4,5 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel(){
     var id: String? = null
+    var type: String? = null
 }

@@ -55,7 +55,8 @@ class CreateAds : Fragment() {
                 //upload image
                 val data = hashMapOf(
                     "title" to binding.editListingName.text.toString(),
-                    "charge" to binding.editHourlyRate.text.toString()
+                    "charge" to binding.editHourlyRate.text.toString(),
+                    "id" to viewModel.id.toString()
                 )
                 db.collection("ads")
                     .add(data)

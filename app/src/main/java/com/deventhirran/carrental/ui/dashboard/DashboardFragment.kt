@@ -67,7 +67,7 @@ class DashboardFragment : Fragment() {
                     val adsPrice = result.getField<String>("charge").toString()
                     val adsImg = result.getField<String>("image").toString()
                     d("debugAdsList", "debugAdsList: ${result.id}, $adsPrice")
-                    listAds.add(ListAds(result.id, adsTitle, adsPrice, adsImg))
+                    listAds.add(ListAds(result.id, adsTitle, adsPrice, adsImg, viewModel.type.toString()))
                     listAdapter.notifyDataSetChanged()
                 }
             }
