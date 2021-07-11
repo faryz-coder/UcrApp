@@ -8,5 +8,5 @@
     <string name="SignIn">SIGN IN</string>
     <string name="SignUp">REGISTER</string>
     <string name="fragment_create_ads">Create Ads</string>
-    <string name="sign_out">Sign Out</string>
+    <string name="sign_out">SignOut</string>
 </resources>

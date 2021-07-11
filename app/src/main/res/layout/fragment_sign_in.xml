@@ -35,7 +35,7 @@
         android:inputType="textPassword"
         android:padding="4dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_sign_up"
+        app:layout_constraintBottom_toTopOf="@+id/button_sign_in"
         app:layout_constraintEnd_toEndOf="@+id/signup_input_username"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/signup_input_username"
@@ -62,7 +62,7 @@
         app:layout_constraintStart_toStartOf="@+id/signup_input_username" />
 
     <Button
-        android:id="@+id/button_sign_up"
+        android:id="@+id/button_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -80,9 +80,9 @@
         android:text="Not Registered yet? click Here"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/button_sign_up"
+        app:layout_constraintEnd_toStartOf="@+id/button_sign_in"
         app:layout_constraintStart_toStartOf="@+id/signup_input_password"
-        app:layout_constraintTop_toTopOf="@+id/button_sign_up" />
+        app:layout_constraintTop_toTopOf="@+id/button_sign_in" />
 
     <ImageView
         android:id="@+id/imageView4"

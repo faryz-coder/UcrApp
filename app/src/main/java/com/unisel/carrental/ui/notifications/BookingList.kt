@@ -1,7 +1,5 @@
-package com.deventhirran.carrental.ui.notifications
+package com.unisel.carrental.ui.notifications
 
-import android.app.Activity
-import android.content.Context
 import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
@@ -11,13 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.deventhirran.carrental.MainActivity
-import com.deventhirran.carrental.R
-import com.deventhirran.carrental.ui.home.HomeFragment
-import com.deventhirran.carrental.ui.user.viewmodel.LoginViewModel
+import com.unisel.carrental.R
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

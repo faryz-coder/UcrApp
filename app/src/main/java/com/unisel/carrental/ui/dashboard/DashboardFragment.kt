@@ -1,19 +1,17 @@
-package com.deventhirran.carrental.ui.dashboard
+package com.unisel.carrental.ui.dashboard
 
 import android.os.Bundle
 import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.deventhirran.carrental.R
-import com.deventhirran.carrental.databinding.FragmentDashboardBinding
-import com.deventhirran.carrental.ui.user.viewmodel.LoginViewModel
+import com.unisel.carrental.R
+import com.unisel.carrental.databinding.FragmentDashboardBinding
+import com.unisel.carrental.ui.user.viewmodel.LoginViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase

@@ -1,4 +1,4 @@
-package com.deventhirran.carrental.ui.notifications
+package com.unisel.carrental.ui.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

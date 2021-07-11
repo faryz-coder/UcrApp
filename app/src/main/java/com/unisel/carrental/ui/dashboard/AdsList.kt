@@ -1,4 +1,4 @@
-package com.deventhirran.carrental.ui.dashboard
+package com.unisel.carrental.ui.dashboard
 
 import android.util.Log.d
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.deventhirran.carrental.R
+import com.unisel.carrental.R
 import com.squareup.picasso.Picasso
 
 class AdsList(private val listAds: MutableList<ListAds>) : RecyclerView.Adapter<AdsList.ViewHolder>() {

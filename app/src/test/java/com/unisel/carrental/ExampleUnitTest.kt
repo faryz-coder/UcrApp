@@ -1,4 +1,4 @@
-package com.deventhirran.carrental
+package com.unisel.carrental
 
 import org.junit.Test
 

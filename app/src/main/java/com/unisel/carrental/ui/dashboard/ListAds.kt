@@ -1,4 +1,4 @@
-package com.deventhirran.carrental.ui.dashboard
+package com.unisel.carrental.ui.dashboard
 
 data class ListAds (
     val uid: String,

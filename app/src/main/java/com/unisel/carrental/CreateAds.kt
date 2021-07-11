@@ -1,6 +1,5 @@
-package com.deventhirran.carrental
+package com.unisel.carrental
 
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -17,8 +16,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.deventhirran.carrental.databinding.FragmentCreateAdsBinding
-import com.deventhirran.carrental.ui.user.viewmodel.LoginViewModel
+import com.unisel.carrental.databinding.FragmentCreateAdsBinding
+import com.unisel.carrental.ui.user.viewmodel.LoginViewModel
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

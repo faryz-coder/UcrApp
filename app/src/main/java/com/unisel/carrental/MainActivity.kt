@@ -1,5 +1,6 @@
-package com.deventhirran.carrental
+package com.unisel.carrental
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -13,12 +14,13 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.deventhirran.carrental.databinding.ActivityMainBinding
-import com.deventhirran.carrental.databinding.ActivityMainRentalBinding
-import com.deventhirran.carrental.ui.user.viewmodel.LoginViewModel
+import com.unisel.carrental.databinding.ActivityMainBinding
+import com.unisel.carrental.databinding.ActivityMainRentalBinding
+import com.unisel.carrental.ui.user.viewmodel.LoginViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.unisel.carrental.ui.user.LoginMainActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -40,37 +42,30 @@ class MainActivity : AppCompatActivity() {
 
         signInAnonymously()
 
+        val navView :BottomNavigationView
+
         if (type == "owner") {
             binding = ActivityMainBinding.inflate(layoutInflater)
             setContentView(binding.root)
-            val navView: BottomNavigationView = binding.navView
+            navView = binding.navView
             setSupportActionBar(binding.toolbar)
-            val navController = findNavController(R.id.nav_host_fragment_activity_main)
-            // Passing each menu ID as a set of Ids because each
-            // menu should be considered as top level destinations.
-            appBarConfiguration = AppBarConfiguration(
-                setOf(
-                    R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications,
-                )
-            )
-            setupActionBarWithNavController(navController, appBarConfiguration)
-            navView.setupWithNavController(navController)
+
         } else {
             var binding2: ActivityMainRentalBinding = ActivityMainRentalBinding.inflate(layoutInflater)
             setContentView(binding2.root)
-            val navView: BottomNavigationView = binding2.navView
+            navView = binding2.navView
             setSupportActionBar(binding2.toolbar)
-            val navController = findNavController(R.id.nav_host_fragment_activity_main)
-            // Passing each menu ID as a set of Ids because each
-            // menu should be considered as top level destinations.
-            appBarConfiguration = AppBarConfiguration(
-                setOf(
-                    R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-                )
-            )
-            setupActionBarWithNavController(navController, appBarConfiguration)
-            navView.setupWithNavController(navController)
         }
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications,
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -84,7 +79,9 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_signout -> {
+                signOut()
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -108,5 +105,14 @@ class MainActivity : AppCompatActivity() {
 
                 }
             }
+    }
+
+    private fun signOut(): Boolean {
+        auth.signOut()
+        val intent = Intent ( this, LoginMainActivity::class.java)
+        startActivity(intent)
+        finish()
+
+        return true
     }
 }

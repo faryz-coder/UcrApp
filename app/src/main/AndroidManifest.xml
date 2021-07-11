@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.deventhirran.carrental">
+    package="com.unisel.carrental">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarRental">
         <activity
-            android:name=".ui.user.LoginMainActivity"
+            android:name="com.unisel.carrental.ui.user.LoginMainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.CarRental.NoActionBar">
 
@@ -20,8 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.CarRental.NoActionBar"/>
+        <activity android:name="com.unisel.carrental.MainActivity"
+            android:theme="@style/Theme.CarRental.NoActionBar">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

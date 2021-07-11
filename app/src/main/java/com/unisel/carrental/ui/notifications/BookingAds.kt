@@ -1,4 +1,4 @@
-package com.deventhirran.carrental.ui.notifications
+package com.unisel.carrental.ui.notifications
 
 data class BookingAds (
     val title: String,

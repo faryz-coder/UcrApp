@@ -1,4 +1,4 @@
-package com.deventhirran.carrental.ui.user
+package com.unisel.carrental.ui.user
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.deventhirran.carrental.MainActivity
-import com.deventhirran.carrental.R
-import com.deventhirran.carrental.databinding.FragmentSignInBinding
+import com.unisel.carrental.MainActivity
+import com.unisel.carrental.R
+import com.unisel.carrental.databinding.FragmentSignInBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
@@ -40,9 +40,11 @@ class SignInFragment : Fragment() {
         binding.signupInputPassword.setOnClickListener {
             Toast.makeText(context, "Input Password", Toast.LENGTH_SHORT).show()
         }
-        binding.buttonSignUp.setOnClickListener {
+        binding.buttonSignIn.setOnClickListener {
             // check if the form is valid
             if (valid()){
+                Snackbar.make(requireView(), "Processing ... ", Snackbar.LENGTH_SHORT).show()
+                binding.buttonSignIn.isEnabled = false
                 // proceed to sign in process
                 db.collection("user").document(binding.signupInputUsername.text.toString())
                     .get()
@@ -58,7 +60,9 @@ class SignInFragment : Fragment() {
                         } else {
                             Toast.makeText(context, "Wrong Password", Toast.LENGTH_SHORT).show()
                             d("debugLogin", "signIn:Wrong Password")
+                            binding.buttonSignIn.isEnabled = true
                         }
+                        binding.buttonSignIn.isEnabled = true
                     }
                     .addOnFailureListener { e ->
                         Toast.makeText(context, "FirebaseError: $e", Toast.LENGTH_SHORT).show()

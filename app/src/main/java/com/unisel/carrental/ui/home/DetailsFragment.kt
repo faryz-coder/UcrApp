@@ -1,26 +1,26 @@
-package com.deventhirran.carrental.ui.home
+package com.unisel.carrental.ui.home
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log.d
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.deventhirran.carrental.R
-import com.deventhirran.carrental.databinding.FragmentDetailsBinding
-import com.deventhirran.carrental.ui.user.viewmodel.LoginViewModel
+import androidx.navigation.findNavController
+import com.unisel.carrental.databinding.FragmentDetailsBinding
+import com.unisel.carrental.ui.user.viewmodel.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
@@ -53,6 +53,7 @@ class DetailsFragment : Fragment() {
                 price = it.getField<String>("charge").toString()
                 binding.detailsTitle.text = it.getField<String>("title").toString()
                 binding.detailsPrice.text = "RM" + price
+                Picasso.get().load(it.getField<String>("image").toString()).into(binding.detailsImg)
             }
 
 
@@ -72,6 +73,8 @@ class DetailsFragment : Fragment() {
         }
         binding.detailsButtonBooked.setOnClickListener {
             if (valid()) {
+                Snackbar.make(requireView(), "Processing booking ...", Snackbar.LENGTH_SHORT).show()
+                binding.detailsButtonBooked.isEnabled = false
                 /// Booking process
                 db.collection("ads").document(uid!!)
                     .get()
@@ -110,6 +113,9 @@ class DetailsFragment : Fragment() {
                                     .addOnSuccessListener {
                                         d("debugDetails", "debugDetails:SubmitBooking:Success")
                                         Snackbar.make(requireView(), "Thanks for booking", Snackbar.LENGTH_SHORT).show()
+                                        Handler(Looper.getMainLooper()).postDelayed({
+                                            requireView().findNavController().popBackStack()
+                                        }, 1200)
 //                                binding.detailsButtonBooked.isEnabled = false
                                     }
                             }

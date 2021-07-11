@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.deventhirran.carrental.ui.home.HomeFragment"
+        android:name="com.unisel.carrental.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.deventhirran.carrental.ui.dashboard.DashboardFragment"
+        android:name="com.unisel.carrental.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" >
         <action
@@ -27,19 +27,19 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.deventhirran.carrental.ui.notifications.NotificationsFragment"
+        android:name="com.unisel.carrental.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/createAds"
-        android:name="com.deventhirran.carrental.CreateAds"
+        android:name="com.unisel.carrental.CreateAds"
         android:label="@string/fragment_create_ads"
         tools:layout="@layout/fragment_create_ads" />
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.deventhirran.carrental.ui.home.DetailsFragment"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details" >
+        android:name="com.unisel.carrental.ui.home.DetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_details">
         <argument
             android:name="uid"
             app:argType="string" />

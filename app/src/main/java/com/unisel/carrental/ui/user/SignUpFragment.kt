@@ -1,4 +1,4 @@
-package com.deventhirran.carrental.ui.user
+package com.unisel.carrental.ui.user
 
 import android.os.Bundle
 import android.os.Handler
@@ -11,8 +11,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.deventhirran.carrental.R
-import com.deventhirran.carrental.databinding.FragmentSignUpBinding
+import com.unisel.carrental.R
+import com.unisel.carrental.databinding.FragmentSignUpBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -42,6 +42,8 @@ class SignUpFragment : Fragment() {
         binding.buttonSignUp.setOnClickListener {
             // check if info is valid
             if (valid()) {
+                Snackbar.make(requireView(), "Processing ... ", Snackbar.LENGTH_SHORT).show()
+                binding.buttonSignUp.isEnabled = false
                 // Create Account
                 val data = hashMapOf(
                     "username" to binding.signupInputUsername.text.toString(),
@@ -60,6 +62,7 @@ class SignUpFragment : Fragment() {
                             requireView().findNavController().popBackStack()
                         },1300)
                     }
+                binding.buttonSignUp.isEnabled = true
             }
         }
 

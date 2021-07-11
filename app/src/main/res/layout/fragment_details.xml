@@ -32,7 +32,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Title"
                 android:textColor="#201F1F"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/details_img"

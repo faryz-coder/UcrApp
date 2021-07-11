@@ -33,6 +33,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548884309290:android:994c58a30e22e6d9b0ea53",
+        "android_client_info": {
+          "package_name": "com.unisel.carrental"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548884309290-8ohps5lroaidb3fdhjr3fcf2mietcfnl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrDVDESnP96kv6lBquMOs-dwJiw-duzEs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548884309290-8ohps5lroaidb3fdhjr3fcf2mietcfnl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
