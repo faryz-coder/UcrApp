@@ -4,17 +4,20 @@ import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.deventhirran.carrental.R
+import com.squareup.picasso.Picasso
 
 class AdsList(private val listAds: MutableList<ListAds>) : RecyclerView.Adapter<AdsList.ViewHolder>() {
     class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.listRow_title)
         val price: TextView = itemView.findViewById(R.id.listRow_price)
+        val image: ImageView = itemView.findViewById(R.id.listRow_image)
         val selection: ConstraintLayout = itemView.findViewById(R.id.listRow_selection)
     }
 
@@ -26,7 +29,8 @@ class AdsList(private val listAds: MutableList<ListAds>) : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val loc = listAds[position]
         holder.title.text = loc.title
-        holder.price.text = loc.price
+        holder.price.text = "RM "+ loc.price
+        Picasso.get().load(loc.image).into(holder.image)
         d("debugAdsList", "debugAdsListAdapter: ${loc.price}")
         if (loc.type != "owner") {
             holder.selection.setOnClickListener {

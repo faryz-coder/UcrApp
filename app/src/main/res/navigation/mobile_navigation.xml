@@ -33,7 +33,7 @@
     <fragment
         android:id="@+id/createAds"
         android:name="com.deventhirran.carrental.CreateAds"
-        android:label="fragment_create_ads"
+        android:label="@string/fragment_create_ads"
         tools:layout="@layout/fragment_create_ads" />
     <fragment
         android:id="@+id/detailsFragment"

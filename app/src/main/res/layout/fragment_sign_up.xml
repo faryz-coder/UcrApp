@@ -5,31 +5,49 @@
     android:id="@+id/layoutSignup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#6B0094A1"
+    android:padding="50dp"
     tools:context=".ui.user.SignUpFragment">
 
-    <EditText
-        android:id="@+id/signup_input_username"
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="40dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/signup_input_password"
+        android:layout_height="304dp"
+        android:background="@drawable/item_border"
+        android:backgroundTint="#F6F6F6"
+        android:padding="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo"
+        tools:src="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/signup_input_username"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/signup_input_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
         android:id="@+id/signup_input_password"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginBottom="40dp"
+        android:background="@drawable/edit_text_background"
         android:ems="10"
         android:inputType="textPassword"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="@+id/signup_input_username"
         app:layout_constraintHorizontal_bias="0.5"
@@ -40,7 +58,9 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:text="Username"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/signup_input_username"
         app:layout_constraintStart_toStartOf="@+id/signup_input_username" />
 
@@ -48,7 +68,9 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:text="Password"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/signup_input_password"
         app:layout_constraintStart_toStartOf="@+id/signup_input_username" />
 
@@ -58,6 +80,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="SIGN UP"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/signup_input_password"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
@@ -66,6 +90,8 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Already Registered? proceed to Sign In"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/signup_input_password"
         app:layout_constraintTop_toTopOf="@+id/button_sign_up" />
 
@@ -73,7 +99,9 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:text="Account Type"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintStart_toStartOf="@+id/radioGroup" />
 
@@ -81,6 +109,8 @@
         android:id="@+id/radioGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/edit_text_background"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/signup_input_password"
@@ -93,13 +123,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="Owner" />
+            android:text="Owner"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/radioButtonRental"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rental" />
+            android:text="Rental"
+            android:textStyle="bold" />
 
     </RadioGroup>
 

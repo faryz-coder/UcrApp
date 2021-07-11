@@ -13,5 +13,6 @@ data class BookingAds (
     val status: String,
     val type: String,
     val ownerId: String,
-    val adsId: String
+    val adsId: String,
+    val adsOwnerId: String
 )

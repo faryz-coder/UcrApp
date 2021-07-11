@@ -5,12 +5,16 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#6B0094A1"
     android:padding="16dp"
     tools:context=".ui.home.DetailsFragment">
 
     <ScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/edit_text_background"
+        app:layout_constraintBottom_toTopOf="@+id/details_booking_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,18 +22,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp">
 
             <TextView
                 android:id="@+id/details_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Title" />
+                android:hint="Title"
+                android:textColor="#201F1F"
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/details_img"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingVertical="10dp"
                 tools:src="@tools:sample/avatars" />
 
             <LinearLayout
@@ -39,16 +48,19 @@
 
                 <TextView
                     android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:text="Price (/h) :" />
+                    android:text="Price (/h) :"
+                    android:textColor="#3E3D3D"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/details_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="RM" />
+                    android:hint="RM"
+                    android:textColor="#3E3D3D"
+                    android:textSize="16sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -72,7 +84,8 @@
                 android:id="@+id/textView10"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
-                android:text="Start Time:" />
+                android:text="Start Time:"
+                android:textColor="#020202" />
 
             <Button
                 android:id="@+id/details_date_start"
@@ -92,7 +105,8 @@
                 android:id="@+id/textView11"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
-                android:text="EndTime: " />
+                android:text="EndTime: "
+                android:textColor="#020202" />
 
             <Button
                 android:id="@+id/details_date_end"

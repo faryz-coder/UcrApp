@@ -96,7 +96,8 @@ class DetailsFragment : Fragment() {
                             "start_time" to startTime,
                             "end_date" to endDate,
                             "end_time" to endTime,
-                            "status" to "pending"
+                            "status" to "pending",
+                            "adsOwnerId" to adsOwnerId
                         )
 
                         // add to the user db

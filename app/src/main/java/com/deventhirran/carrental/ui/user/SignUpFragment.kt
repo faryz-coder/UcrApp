@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.deventhirran.carrental.R
 import com.deventhirran.carrental.databinding.FragmentSignUpBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
@@ -59,6 +61,10 @@ class SignUpFragment : Fragment() {
                         },1300)
                     }
             }
+        }
+
+        binding.signUpSignin.setOnClickListener {
+            findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
         }
 
 

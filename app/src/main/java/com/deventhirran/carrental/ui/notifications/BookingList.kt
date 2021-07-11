@@ -21,6 +21,7 @@ import com.deventhirran.carrental.ui.user.viewmodel.LoginViewModel
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 import java.util.*
 
 class BookingList(private val adsBooking: MutableList<BookingAds>) :
@@ -54,8 +55,9 @@ class BookingList(private val adsBooking: MutableList<BookingAds>) :
         holder.endDate.text = loc.endDate
         holder.startTime.text = loc.startTime
         holder.endTime.text = loc.endTime
-        holder.total.text = loc.total
+        holder.total.text = "RM "+loc.total
         holder.status.text = loc.status.uppercase(Locale.getDefault())
+        Picasso.get().load(loc.image).into(holder.img)
 
         if (loc.type != "owner") {
             holder.itemView.findViewById<TextView>(R.id.textView7).isGone = true
@@ -79,7 +81,13 @@ class BookingList(private val adsBooking: MutableList<BookingAds>) :
                             .delete()
                             .addOnSuccessListener {
                                 d("debugBookingList", "debugBookingList:remove")
+                                db.collection("user").document(loc.adsOwnerId).collection("Post").document(loc.adsId)
+                                    .delete()
+                                    .addOnSuccessListener {
+                                        d("debugBookingList", "debugBookingList:remove owner ads")
+                                    }
                             }
+
                     }
             }
             holder.btnReject.setOnClickListener {

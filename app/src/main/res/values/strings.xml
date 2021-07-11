@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">CarRental</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">List</string>
+    <string name="title_notifications">History</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="SignIn">SIGN IN</string>
     <string name="SignUp">REGISTER</string>
+    <string name="fragment_create_ads">Create Ads</string>
+    <string name="sign_out">Sign Out</string>
 </resources>
