@@ -2,6 +2,7 @@ package com.unisel.carrental.ui.home
 
 import android.os.Bundle
 import android.util.Log
+import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -96,6 +97,7 @@ class HomeFragment : Fragment() {
                     return@addSnapshotListener
                 }
                 if (snapshot != null) {
+                    d("debugHome", "debugHome:changesDetect")
                     AdsBooking.clear()
                     for (result in snapshot) {
                         val Title = result.getField<String>("title").toString()
@@ -112,6 +114,8 @@ class HomeFragment : Fragment() {
 
                         if (Status == "pending") {
                             AdsBooking.add(BookingAds(Title, Price, Total, Img, StartDate, StartTime, EndDate, EndTime, ClientId, Status, viewModel.type.toString(), viewModel.id.toString(), result.id, AdsOwnerId))
+                            adapterBooking.notifyDataSetChanged()
+                        } else {
                             adapterBooking.notifyDataSetChanged()
                         }
                     }

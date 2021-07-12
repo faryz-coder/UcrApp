@@ -87,8 +87,8 @@ class CreateAds : Fragment() {
                                             "charge" to binding.editHourlyRate.text.toString(),
                                             "image" to imgUrl
                                         )
-                                        db.collection("user").document(viewModel.id.toString()).collection("Post")
-                                            .add(data2)
+                                        db.collection("user").document(viewModel.id.toString()).collection("Post").document(documentId)
+                                            .set(data2)
                                             .addOnSuccessListener {
                                                 Toast.makeText(requireContext(), "Ads Posted!", Toast.LENGTH_SHORT).show()
                                                 Handler(Looper.getMainLooper()).postDelayed({
