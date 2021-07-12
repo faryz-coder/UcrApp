@@ -91,6 +91,8 @@ class BookingList(private val adsBooking: MutableList<BookingAds>) :
                 )
                 db.collection("user").document(loc.clientId).collection("Booking").document(loc.adsId)
                     .set(data, SetOptions.merge())
+                db.collection("user").document(loc.ownerId).collection("Booking").document(loc.adsId)
+                    .delete()
             }
         }
     }
