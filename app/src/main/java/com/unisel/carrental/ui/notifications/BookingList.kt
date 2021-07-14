@@ -15,6 +15,7 @@ import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
+import org.w3c.dom.Text
 import java.util.*
 
 class BookingList(private val adsBooking: MutableList<BookingAds>) :
@@ -30,6 +31,8 @@ class BookingList(private val adsBooking: MutableList<BookingAds>) :
         val endTime: TextView = itemView.findViewById(R.id.booking_list_endTime)
         val total: TextView = itemView.findViewById(R.id.booking_list_total)
         val status: TextView = itemView.findViewById(R.id.booking_list_status)
+        val name: TextView = itemView.findViewById(R.id.booking_list_name)
+        val phone: TextView = itemView.findViewById(R.id.booking_list_phone)
         val bookingConfirmation : ConstraintLayout = itemView.findViewById(R.id.booking_list_for_rental)
         val btnApprove : Button = itemView.findViewById(R.id.booking_list_button_approve)
         val btnReject: Button = itemView.findViewById(R.id.booking_list_button_reject)
@@ -43,6 +46,8 @@ class BookingList(private val adsBooking: MutableList<BookingAds>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val loc = adsBooking[position]
         holder.title.text = loc.title
+        holder.name.text = loc.clientName
+        holder.phone.text = loc.clientPhone
         holder.clientId.text = loc.clientId
         holder.startDate.text = loc.startDate
         holder.endDate.text = loc.endDate

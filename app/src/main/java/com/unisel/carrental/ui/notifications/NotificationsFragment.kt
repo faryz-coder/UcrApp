@@ -62,12 +62,14 @@ class NotificationsFragment : Fragment() {
                     val EndTime = result.getField<String>("end_time").toString()
                     val ClientId = result.getField<String>("clientId").toString()
                     val AdsOwnerId = result.getField<String>("adsOwnerId").toString()
+                    val ClientName = result.getField<String>("clientName").toString()
+                    val ClientPhone = result.getField<String>("clientPhone").toString()
 
                     if (viewModel.type != "owner") {
-                        AdsBooking.add(BookingAds(Title, Price, Total, Img, StartDate, StartTime, EndDate, EndTime, ClientId, Status, "null", viewModel.id.toString(), result.id, AdsOwnerId))
+                        AdsBooking.add(BookingAds(Title, Price, Total, Img, StartDate, StartTime, EndDate, EndTime, ClientId, Status, "null", viewModel.id.toString(), result.id, AdsOwnerId, ClientName, ClientPhone))
                         adapterBooking.notifyDataSetChanged()
                     } else if (viewModel.type == "owner" && Status != "pending") {
-                        AdsBooking.add(BookingAds(Title, Price, Total, Img, StartDate, StartTime, EndDate, EndTime, ClientId, Status, "null", viewModel.id.toString(), result.id, AdsOwnerId))
+                        AdsBooking.add(BookingAds(Title, Price, Total, Img, StartDate, StartTime, EndDate, EndTime, ClientId, Status, "null", viewModel.id.toString(), result.id, AdsOwnerId,  ClientName, ClientPhone))
                         adapterBooking.notifyDataSetChanged()
                     }
 //                    if (Status != "pending") {

@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.unisel.carrental.databinding.FragmentDetailsBinding
@@ -100,7 +101,9 @@ class DetailsFragment : Fragment() {
                             "end_date" to endDate,
                             "end_time" to endTime,
                             "status" to "pending",
-                            "adsOwnerId" to adsOwnerId
+                            "adsOwnerId" to adsOwnerId,
+                            "clientPhone" to binding.detailsPhone.text.toString(),
+                            "clientName" to binding.detailsName.text.toString()
                         )
 
                         // add to the user db
@@ -137,6 +140,15 @@ class DetailsFragment : Fragment() {
             binding.detailsDateEnd.error = ""
             valid = false
         }
+        if (binding.detailsName.text.toString().isEmpty() and binding.detailsPhone.text.toString().isEmpty()) {
+            binding.detailsName.error = "Fill the name"
+            binding.detailsPhone.error = "Fill phone number"
+            valid = false
+        } else {
+            binding.detailsName.error = ""
+            binding.detailsPhone.error = ""
+        }
+
         return valid
     }
 

@@ -14,5 +14,7 @@ data class BookingAds (
     val type: String,
     val ownerId: String,
     val adsId: String,
-    val adsOwnerId: String
+    val adsOwnerId: String,
+    val clientName: String,
+    val clientPhone: String
 )
